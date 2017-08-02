@@ -5,7 +5,8 @@ import products from '../data/products';
 const getProducts = ( state = products, action) => {
   switch(action.type) {
     case GET_PRODUCTS:
-      return action.payload
+      console.log('get products action', action.payload.products);
+      return action.payload.products
   }
   return state;
 }
@@ -13,12 +14,14 @@ const getProducts = ( state = products, action) => {
 const sortProducts = ( state = products, action ) => {
   switch(action.type) {
     case SORT_PRODUCTS_UNDER:
+      let dataUnder = action.payload.products;
       return [
-        ...state.filter(product => (Number(product.price) < 20 ) )
+        ...dataUnder.filter(product => (Number(product.price) < 20 ) )
       ]
     case SORT_PRODUCTS_OVER:
+      let dataOver = action.payload.products;
       return [
-        ...state.filter(product => (Number(product.price) > 20 ) )
+        ...dataOver.filter(product => (Number(product.price) > 20 ) )
       ]
   }
   return state;
