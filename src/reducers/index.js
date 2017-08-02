@@ -13,6 +13,8 @@ const getProducts = ( state = products, action) => {
 
 const sortProducts = ( state = products, action ) => {
   switch(action.type) {
+    case GET_PRODUCTS:
+      return action.payload.products;
     case SORT_PRODUCTS_UNDER:
       let dataUnder = action.payload.products;
       return [
