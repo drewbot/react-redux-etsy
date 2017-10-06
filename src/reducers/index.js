@@ -2,6 +2,11 @@ import { combineReducers } from 'redux';
 import { GET_PRODUCTS, SORT_PRODUCTS_UNDER, SORT_PRODUCTS_OVER} from '../actions/index';
 import products from '../data/products';
 
+const initialState = {
+  products: products,
+  filter: 'all'
+}
+
 const getProducts = ( state = products, action) => {
   switch(action.type) {
     case GET_PRODUCTS:
